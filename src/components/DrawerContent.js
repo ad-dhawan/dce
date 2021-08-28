@@ -4,6 +4,12 @@ import {Drawer, Caption} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Foundation from 'react-native-vector-icons/Foundation';
+import Entypo from 'react-native-vector-icons/Entypo'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 export function DrawerContent(props) {
   return (
@@ -14,6 +20,18 @@ export function DrawerContent(props) {
             source={require('../assets/dce_logo.png')}
             style={styles.logo}
           />
+
+          <Drawer.Section style={styles.drawerSection}>
+            <DrawerItem
+              icon={({color, size}) => (
+                <MaterialIcons name="dashboard" color="#000" size={20} />
+              )}
+              label="Dashboard"
+              onPress={() => {
+                props.navigation.navigate('Dashboard');
+              }}
+            />
+          </Drawer.Section>
 
           <Drawer.Section style={styles.drawerSection}>
             <Caption style={styles.drawerTitle}>MDU Official</Caption>
@@ -28,7 +46,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <Foundation name="results" color="#000" size={20} />
               )}
               label="Result"
               onPress={() => {
@@ -37,7 +55,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <Entypo name="open-book" color="#000" size={20} />
               )}
               label="Syllabus"
               onPress={() => {
@@ -59,7 +77,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <Foundation name="results" color="#000" size={20} />
               )}
               label="Result"
               onPress={() => {
@@ -72,7 +90,7 @@ export function DrawerContent(props) {
             <Caption style={styles.drawerTitle}>Misc</Caption>
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="home-outline" color="#000" size={20} />
+                <FontAwesome5 name="user-graduate" color="#000" size={20} />
               )}
               label="Student Portal"
               onPress={() => {
@@ -81,7 +99,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <FontAwesome name="book" color="#000" size={20} />
               )}
               label="Books"
               onPress={() => {
@@ -90,7 +108,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <Ionicons name="md-newspaper-sharp" color="#000" size={20} />
               )}
               label="Previous Year Paper"
               onPress={() => {
@@ -99,7 +117,7 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={() => (
-                <Icon name="account-outline" color="#000" size={20} />
+                <Ionicons name="pencil" color="#000" size={20} />
               )}
               label="Notes"
               onPress={() => {

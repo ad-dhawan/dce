@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native'
 
-const StudentPortal = () => {
+import Header from '../components/Header';
+
+const StudentPortal = ({navigation}) => {
     return(
         <View>
+        <Header navigation={navigation} />
             <Text>StudentPortal</Text>
         </View>
     )

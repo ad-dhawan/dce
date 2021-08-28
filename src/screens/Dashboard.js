@@ -3,13 +3,13 @@ import {View, Text} from 'react-native'
 
 import Header from '../components/Header';
 
-const MduResult = ({navigation}) => {
+const Dashboard = ({navigation}) => {
     return(
         <View>
-        <Header navigation={navigation} />
-            <Text>MduResult</Text>
+            <Header navigation={navigation} />
+            <Text>Dashboard</Text>
         </View>
     )
 };
 
-export default MduResult;
+export default Dashboard;

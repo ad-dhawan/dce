@@ -1,9 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native'
 
-const DceResult = () => {
+import Header from '../components/Header';
+
+const DceResult = ({navigation}) => {
     return(
         <View>
+        <Header navigation={navigation} />
             <Text>DceResult</Text>
         </View>
     )

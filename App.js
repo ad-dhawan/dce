@@ -1,21 +1,24 @@
 import React, {useEffect} from 'react';
 import {View, Text, Image} from 'react-native';
-import RNBootSplash from 'react-native-bootsplash'
+import RNBootSplash from 'react-native-bootsplash';
 
-import { DrawerContent } from './src/components/DrawerContent';
+import {DrawerContent} from './src/components/DrawerContent';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import Dashboard from './src/screens/Dashboard';
 import MduHome from './src/screens/MduHome';
 import MduResult from './src/screens/MduResult';
 import Syllabus from './src/screens/Syllabus';
 import DceResult from './src/screens/DceResult';
 import DceHome from './src/screens/DceHome';
-import StudentPortal from './src/screens/StudentPortal'
-import Books from './src/screens/Books'
-import PrevYearPaper from './src/screens/PrevYearPaper'
-import Notes from './src/screens/Notes'
+import StudentPortal from './src/screens/StudentPortal';
+import Books from './src/screens/Books';
+import PrevYearPaper from './src/screens/PrevYearPaper';
+import Notes from './src/screens/Notes';
+
+import Header from './src/components/Header';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,9 +33,14 @@ const App = () => {
     });
   }, []);
 
-  return(
+  return (
     <NavigationContainer>
-    <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      <Drawer.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        drawerContent={props => <DrawerContent {...props} />}>
+        <Drawer.Screen name="Dashboard" component={Dashboard} />
         <Drawer.Screen name="MduHome" component={MduHome} />
         <Drawer.Screen name="MduResult" component={MduResult} />
         <Drawer.Screen name="Syllabus" component={Syllabus} />
@@ -44,7 +52,7 @@ const App = () => {
         <Drawer.Screen name="Notes" component={Notes} />
       </Drawer.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
 export default App;
