@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, Text, Image} from 'react-native';
+import {StatusBar} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
 
 import {DrawerContent} from './src/components/DrawerContent';
@@ -34,24 +34,32 @@ const App = () => {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        drawerContent={props => <DrawerContent {...props} />}>
-        <Drawer.Screen name="Dashboard" component={Dashboard} />
-        <Drawer.Screen name="MduHome" component={MduHome} />
-        <Drawer.Screen name="MduResult" component={MduResult} />
-        <Drawer.Screen name="Syllabus" component={Syllabus} />
-        <Drawer.Screen name="DceResult" component={DceResult} />
-        <Drawer.Screen name="DceHome" component={DceHome} />
-        <Drawer.Screen name="StudentPortal" component={StudentPortal} />
-        <Drawer.Screen name="Books" component={Books} />
-        <Drawer.Screen name="PrevYearPaper" component={PrevYearPaper} />
-        <Drawer.Screen name="Notes" component={Notes} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar
+        barStyle="light-content"
+        hidden={false}
+        translucent={true}
+        backgroundColor={'transparent'}
+      />
+      <NavigationContainer>
+        <Drawer.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+          drawerContent={props => <DrawerContent {...props} />}>
+          <Drawer.Screen name="Dashboard" component={Dashboard} />
+          <Drawer.Screen name="MduHome" component={MduHome} />
+          <Drawer.Screen name="MduResult" component={MduResult} />
+          <Drawer.Screen name="Syllabus" component={Syllabus} />
+          <Drawer.Screen name="DceResult" component={DceResult} />
+          <Drawer.Screen name="DceHome" component={DceHome} />
+          <Drawer.Screen name="StudentPortal" component={StudentPortal} />
+          <Drawer.Screen name="Books" component={Books} />
+          <Drawer.Screen name="PrevYearPaper" component={PrevYearPaper} />
+          <Drawer.Screen name="Notes" component={Notes} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
 

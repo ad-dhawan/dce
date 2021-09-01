@@ -10,7 +10,7 @@ import {
 
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const PRIMARY = '#510027';
+import { PRIMARY } from '../utils/colors';
 
 const Header = props => {
   return (
