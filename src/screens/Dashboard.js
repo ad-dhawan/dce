@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  Linking
 } from 'react-native';
 
 import Header from '../components/Header';
@@ -40,7 +41,7 @@ const Dashboard = ({navigation}) => {
           homePress={() => navigation.navigate('MduHome')}
           resultName="Result"
           resultImage={require('../assets/mduResult.png')}
-          resultPress={() => navigation.navigate('MduResult')}
+          resultPress={() => Linking.openURL('http://result.mdurtk.in/postexam/result.aspx')}
           syllabusName="Syllabus"
           syllabusImage={require('../assets/syllabus.png')}
           syllabusPress={() => navigation.navigate('Syllabus')}

@@ -1,15 +1,15 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import {View, StyleSheet, Image, Linking} from 'react-native';
 import {Drawer, Caption} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Foundation from 'react-native-vector-icons/Foundation';
-import Entypo from 'react-native-vector-icons/Entypo'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export function DrawerContent(props) {
   return (
@@ -45,18 +45,14 @@ export function DrawerContent(props) {
               }}
             />
             <DrawerItem
-              icon={() => (
-                <Foundation name="results" color="#000" size={20} />
-              )}
+              icon={() => <Foundation name="results" color="#000" size={20} />}
               label="Result"
               onPress={() => {
-                props.navigation.navigate('MduResult');
+                Linking.openURL('http://result.mdurtk.in/postexam/result.aspx');
               }}
             />
             <DrawerItem
-              icon={() => (
-                <Entypo name="open-book" color="#000" size={20} />
-              )}
+              icon={() => <Entypo name="open-book" color="#000" size={20} />}
               label="Syllabus"
               onPress={() => {
                 props.navigation.navigate('Syllabus');
@@ -76,9 +72,7 @@ export function DrawerContent(props) {
               }}
             />
             <DrawerItem
-              icon={() => (
-                <Foundation name="results" color="#000" size={20} />
-              )}
+              icon={() => <Foundation name="results" color="#000" size={20} />}
               label="Result"
               onPress={() => {
                 props.navigation.navigate('DceResult');
@@ -98,9 +92,7 @@ export function DrawerContent(props) {
               }}
             />
             <DrawerItem
-              icon={() => (
-                <FontAwesome name="book" color="#000" size={20} />
-              )}
+              icon={() => <FontAwesome name="book" color="#000" size={20} />}
               label="Books"
               onPress={() => {
                 props.navigation.navigate('Books');
@@ -116,9 +108,7 @@ export function DrawerContent(props) {
               }}
             />
             <DrawerItem
-              icon={() => (
-                <Ionicons name="pencil" color="#000" size={20} />
-              )}
+              icon={() => <Ionicons name="pencil" color="#000" size={20} />}
               label="Notes"
               onPress={() => {
                 props.navigation.navigate('Notes');
