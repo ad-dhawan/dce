@@ -1,35 +1,24 @@
 import React, {useState, useEffect} from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {Chip} from 'react-native-paper';
 import Pdf from 'react-native-pdf';
 
 import Header from '../components/Header';
-
-const PdfView = props => {
-  return (
-    <View style={styles.pdfContainer}>
-      <Pdf
-        source={{
-          uri: props.source,
-          cache: true,
-        }}
-        onLoadComplete={numberOfPages => {
-          console.log(`number of pages: ${numberOfPages}`);
-        }}
-        onPageChanged={(page, numberOfPages) => {
-          console.log(`current page: ${page}`);
-        }}
-        onError={error => {
-          console.log(error);
-        }}
-        onPressLink={uri => {
-          console.log(`Link presse: ${uri}`);
-        }}
-        style={{flex: 1, width: '100%', height: '100%'}}
-      />
-    </View>
-  );
-};
+import {
+  YEAR1,
+  CSE2,
+  ECE2,
+  ME2,
+  CSE3,
+  IT3,
+  CSIT3,
+  ECE3,
+  CE3,
+  ME3,
+  CSE4,
+  ECE4,
+  ME4,
+} from '../utils/values';
 
 const Syllabus = ({navigation}) => {
   const [source, setSource] = useState('');
@@ -37,33 +26,61 @@ const Syllabus = ({navigation}) => {
   const [batch, setBatch] = useState('');
 
   useEffect(() => {
-    if (domain === 'CSE' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-38-44_B.Tech%20CSE%203rd%20year.pdf',
-      );
-    else if (domain === 'ECE' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-42-37_B.Tech%20ECE%203rd%20year.pdf',
-      );
-    else if (domain === 'CE' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-37-41_B.Tech%20Civil%203rd%20year.pdf',
-      );
-    else if (domain === 'CSIT' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-40-01_B.Tech%20CSIT%203rd%20year.pdf',
-      );
-    else if (domain === 'IT' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-51-29_B.Tech%20IT%203rd%20Year.pdf',
-      );
-    else if (domain === 'ME' && batch === 3)
-      setSource(
-        'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_15-52-44_B.Tech%20ME%203rd%20year.pdf',
-      );
-    else if (domain === 'CSE' && batch === 2)
-      setSource('');
+    if (domain === 'CSE' && batch === 1) setSource(YEAR1);
+    else if (domain === 'IT' && batch === 1) setSource(YEAR1);
+    else if (domain === 'CSIT' && batch === 1) setSource(YEAR1);
+    else if (domain === 'ECE' && batch === 1) setSource(YEAR1);
+    else if (domain === 'CE' && batch === 1) setSource(YEAR1);
+    else if (domain === 'ME' && batch === 1) setSource(YEAR1);
+    else if (domain === 'CSE' && batch === 2) setSource(CSE2);
+    else if (domain === 'IT' && batch === 2) setSource('');
+    else if (domain === 'CSIT' && batch === 2) setSource('');
+    else if (domain === 'ECE' && batch === 2) setSource(ECE2);
+    else if (domain === 'CE' && batch === 2) setSource('');
+    else if (domain === 'ME' && batch === 2) setSource(ME2);
+    else if (domain === 'CSE' && batch === 3) setSource(CSE3);
+    else if (domain === 'ECE' && batch === 3) setSource(ECE3);
+    else if (domain === 'CE' && batch === 3) setSource(CE3);
+    else if (domain === 'CSIT' && batch === 3) setSource(CSIT3);
+    else if (domain === 'IT' && batch === 3) setSource(IT3);
+    else if (domain === 'ME' && batch === 3) setSource(ME3);
+    else if (domain === 'CSE' && batch === 4) setSource(CSE4);
+    else if (domain === 'IT' && batch === 4) setSource('');
+    else if (domain === 'CSIT' && batch === 4) setSource('');
+    else if (domain === 'ECE' && batch === 4) setSource(ECE4);
+    else if (domain === 'CE' && batch === 4) setSource('');
+    else if (domain === 'ME' && batch === 4) setSource(ME4);
   });
+
+  const PdfView = props => {
+    return (
+      <View style={styles.pdfContainer}>
+        <Pdf
+          source={
+            batch === 2 || batch === 4
+              ? props.source
+              : {
+                  uri: props.source,
+                  cache: true,
+                }
+          }
+          onLoadComplete={numberOfPages => {
+            console.log(`number of pages: ${numberOfPages}`);
+          }}
+          onPageChanged={(page, numberOfPages) => {
+            console.log(`current page: ${page}`);
+          }}
+          onError={error => {
+            console.log(error);
+          }}
+          onPressLink={uri => {
+            console.log(`Link presse: ${uri}`);
+          }}
+          style={{flex: 1, width: '100%', height: '100%'}}
+        />
+      </View>
+    );
+  };
 
   return (
     <View>
@@ -149,9 +166,23 @@ const Syllabus = ({navigation}) => {
         </View>
       </View>
 
-      <View style={{width: '100%', height: '100%'}}>
-        <PdfView source={source} />
-      </View>
+      {source === '' ? (
+        <View
+          style={{
+            width: '100%',
+            height: '50%',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>
+            No Data
+          </Text>
+        </View>
+      ) : (
+        <View style={{width: '100%', height: '100%'}}>
+          <PdfView source={source} />
+        </View>
+      )}
     </View>
   );
 };
