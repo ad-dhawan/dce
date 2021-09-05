@@ -18,6 +18,8 @@ import {
   CSE4,
   ECE4,
   ME4,
+  CE2,
+  CE4
 } from '../utils/values';
 
 const Syllabus = ({navigation}) => {
@@ -36,7 +38,7 @@ const Syllabus = ({navigation}) => {
     else if (domain === 'IT' && batch === 2) setSource('');
     else if (domain === 'CSIT' && batch === 2) setSource('');
     else if (domain === 'ECE' && batch === 2) setSource(ECE2);
-    else if (domain === 'CE' && batch === 2) setSource('');
+    else if (domain === 'CE' && batch === 2) setSource(CE2);
     else if (domain === 'ME' && batch === 2) setSource(ME2);
     else if (domain === 'CSE' && batch === 3) setSource(CSE3);
     else if (domain === 'ECE' && batch === 3) setSource(ECE3);
@@ -48,7 +50,7 @@ const Syllabus = ({navigation}) => {
     else if (domain === 'IT' && batch === 4) setSource('');
     else if (domain === 'CSIT' && batch === 4) setSource('');
     else if (domain === 'ECE' && batch === 4) setSource(ECE4);
-    else if (domain === 'CE' && batch === 4) setSource('');
+    else if (domain === 'CE' && batch === 4) setSource(CE4);
     else if (domain === 'ME' && batch === 4) setSource(ME4);
   });
 

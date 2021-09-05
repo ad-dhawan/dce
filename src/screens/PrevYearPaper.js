@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {Chip} from 'react-native-paper';
 
 import Header from '../components/Header';
 import ContentView from '../components/ContentView';
 
-import {CSE, ECE, EEE, ME, CE} from '../utils/values';
+import {CSE, ECE, EE, ME, CE} from '../utils/values';
 
 const PrevYearPaper = ({navigation}) => {
   const [domain, setDomain] = useState('');
@@ -14,7 +14,7 @@ const PrevYearPaper = ({navigation}) => {
   useEffect(() => {
     if (domain === 'CSE') setUrl(CSE);
     else if (domain === 'ECE') setUrl(ECE);
-    else if (domain === 'EEE') setUrl(EEE);
+    else if (domain === 'EE') setUrl(EE);
     else if (domain === 'ME') setUrl(ME);
     else if (domain === 'CE') setUrl(CE);
   });
@@ -22,7 +22,6 @@ const PrevYearPaper = ({navigation}) => {
   return (
     <View>
       <Header iconName="arrow-back" onPressIcon={() => navigation.goBack()} />
-
       <View style={styles.chipContainer}>
         <Chip
           mode="outlined"
@@ -40,10 +39,10 @@ const PrevYearPaper = ({navigation}) => {
         </Chip>
         <Chip
           mode="outlined"
-          selected={domain === 'EEE' ? true : false}
+          selected={domain === 'EE' ? true : false}
           style={styles.chip}
-          onPress={() => setDomain('EEE')}>
-          EEE
+          onPress={() => setDomain('EE')}>
+          EE
         </Chip>
         <Chip
           mode="outlined"
@@ -61,7 +60,13 @@ const PrevYearPaper = ({navigation}) => {
         </Chip>
       </View>
 
-      <View style={{width: '100%', height: '100%', justifyContent: 'center', marginTop: 10}}>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          marginTop: 10,
+        }}>
         <ContentView url={url} />
       </View>
     </View>
