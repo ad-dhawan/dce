@@ -1,3 +1,4 @@
+//SYLLABUS
 export const YEAR1 = 'https://mdu.ac.in/UpFiles/UpPdfFiles/2018/Oct/B.Tech%201st%20year%20common%20with%20all%20branches.pdf';
 export const CSE2 = require('../assets/pdf/CSE-2nd-Year.pdf');
 export const ECE2 = require('../assets/pdf/ECS_2nd_year.pdf');
@@ -11,3 +12,10 @@ export const ME3 = 'https://mdu.ac.in/UpFiles/UpPdfFiles/2021/Jan/4_01-07-2021_1
 export const CSE4 = require('../assets/pdf/CSE-4th-year.pdf');
 export const ECE4 = require('../assets/pdf/ECS_4th_year.pdf');
 export const ME4 = require('../assets/pdf/mech_4th_year.pdf');
+
+//PREVIOUS YEAR PAPERS
+export const CSE = "https://drive.google.com/folderview?id=17zekLAMThocZwFDXEHcPDvHGLlb-PXIx";
+export const ECE = "";
+export const EEE = "";
+export const ME = "https://drive.google.com/drive/folders/12p0EZsfsKdxghW5BOFj1uMG_GMcwyfMc";
+export const CE = "https://drive.google.com/drive/folders/1vk5o0b78nP5XVzQ5Z8ckTZkLGtf_K085";

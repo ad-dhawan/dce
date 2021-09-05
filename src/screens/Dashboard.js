@@ -32,7 +32,7 @@ const Dashboard = ({navigation}) => {
   return (
     <ScrollView>
       <View style={{flex: 1, backgroundColor: BACKGROUND}}>
-        <Header navigation={navigation} />
+        <Header iconName="menu" onPressIcon={() => navigation.openDrawer()} />
 
         <DashboardItem
           title="MDU Official"
@@ -45,6 +45,9 @@ const Dashboard = ({navigation}) => {
           syllabusName="Syllabus"
           syllabusImage={require('../assets/syllabus.png')}
           syllabusPress={() => navigation.navigate('Syllabus')}
+          portalName="Student Portal"
+          portalImage={require('../assets/studentPortal.png')}
+          portalPress={() => navigation.navigate('StudentPortal')}
         />
 
         <DashboardItem
@@ -57,34 +60,27 @@ const Dashboard = ({navigation}) => {
           resultPress={() => navigation.navigate('DceResult')}
         />
 
+      <Text style={styles.title}>Misc</Text>
         <View style={styles.miscContainer}>
 
-          <View style={{flexDirection: 'row', marginTop: 10}}>
-          <MiscItem
-            image={require('../assets/studentPortal.png')}
-            name="Student Portal"
-            onPress={() => navigation.navigate('StudentPortal')}
-          />
-
-          <MiscItem
+          <View style={{flexDirection: 'row', marginTop: 10, flexWrap: 'wrap'}}>
+          {/* <MiscItem
             image={require('../assets/books.png')}
             name="E-Books"
             onPress={() => navigation.navigate('Books')}
-          />
-          </View>
+          /> */}
 
-          <View style={{flexDirection: 'row', marginTop: 15}}>
           <MiscItem
             image={require('../assets/prevYearPaper.png')}
             name="Prev. Year Papers"
             onPress={() => navigation.navigate('PrevYearPaper')}
           />
 
-          <MiscItem
+          {/* <MiscItem
             image={require('../assets/notes.png')}
             name="Notes"
             onPress={() => navigation.navigate('Notes')}
-          />
+          /> */}
           </View>
 
         </View>
@@ -107,6 +103,13 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     fontSize: 15,
     fontWeight: '500'
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: '600',
+    letterSpacing: 1,
+    marginHorizontal: 15,
+    marginVertical: 8
   },
 });
 

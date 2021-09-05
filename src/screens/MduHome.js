@@ -5,15 +5,15 @@ import Header from '../components/Header';
 import ContentView from '../components/ContentView';
 
 const MduHome = ({navigation}) => {
-    return(
-        <View>
-        <Header navigation={navigation} />
+  return (
+    <View>
+      <Header iconName="arrow-back" onPressIcon={() => navigation.goBack()} />
 
-<View style={{width: '100%', height: '100%', justifyContent: 'center'}}>
-  <ContentView url="https://mdu.ac.in/" />
-</View>
-        </View>
-    )
+      <View style={{width: '100%', height: '100%', justifyContent: 'center'}}>
+        <ContentView url="https://mdu.ac.in/" />
+      </View>
+    </View>
+  );
 };
 
 export default MduHome;

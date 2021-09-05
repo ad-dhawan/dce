@@ -84,7 +84,7 @@ const Syllabus = ({navigation}) => {
 
   return (
     <View>
-      <Header navigation={navigation} />
+    <Header iconName="arrow-back" onPressIcon={() => navigation.goBack()} />
 
       <View style={{marginHorizontal: 10, justifyContent: 'center'}}>
         <View style={styles.chipContainer}>

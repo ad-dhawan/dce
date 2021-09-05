@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { PRIMARY } from '../utils/colors';
 
@@ -19,8 +19,8 @@ const Header = props => {
         <View style={styles.componentsContainer}>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => props.navigation.openDrawer()}>
-            <Entypo name="menu" size={32} color="white" />
+            onPress={props.onPressIcon}>
+            <Ionicons name={props.iconName} size={32} color="white" />
           </TouchableOpacity>
           <Image
             source={require('../assets/dronacharya-logo.png')}

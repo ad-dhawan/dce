@@ -28,6 +28,12 @@ const DashboardItem = props => {
           onPress={props.syllabusPress}
         />
 
+        <CategoryItem
+          name={props.portalName}
+          image={props.portalImage}
+          onPress={props.portalPress}
+        />
+
       </ScrollView>
     </View>
   );

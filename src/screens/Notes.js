@@ -6,7 +6,7 @@ import Header from '../components/Header';
 const Notes = ({navigation}) => {
     return(
         <View>
-        <Header navigation={navigation} />
+        <Header iconName="arrow-back" onPressIcon={() => navigation.goBack()} />
             <Text>Notes</Text>
         </View>
     )

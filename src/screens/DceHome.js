@@ -7,7 +7,7 @@ import ContentView from '../components/ContentView';
 const DceHome = ({navigation}) => {
   return (
     <View>
-      <Header navigation={navigation} />
+    <Header iconName="arrow-back" onPressIcon={() => navigation.goBack()} />
 
       <View style={{width: '100%', height: '100%', justifyContent: 'center'}}>
         <ContentView url="https://ggnindia.dronacharya.info/" />
